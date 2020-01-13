@@ -15,10 +15,10 @@
         "sourceType": "module"
     },
     "rules": {
-	"require-jsdoc": 0,
-	"quotes": 0,
-    "object-curly-spacing": 0,
-    "no-unused-vars": 0, 
-    "no-invalid-this": 0
+        "require-jsdoc": 0,
+        "quotes": 0,
+        "object-curly-spacing": 0,
+        "no-unused-vars": 0, 
+        "no-invalid-this": 0
     }
 }

@@ -26,6 +26,29 @@ const websocket = require("ws");
 const port = process.argv[2];
 const app = express();
 
+function amountCorrect(a, b) {
+  const moves = a.split(' ');
+  const answer = b.split(' ');
+  let corTotal = 0;
+  let corPlace = 0;
+  for (i = 0; i < 4; i++) {
+    if (moves[i] == answer[i]) {
+      corTotal++;
+      moves[i] = "notacolor1";
+      answer[i] = "notacolor2";
+    }
+  }
+  for (i = 0; i < 4; i++) {
+    for (j = 0; j < 4; j++) {
+      if (moves[i] == answer[j]) {
+        corPlace++;
+      }
+    }
+  }
+  corPlace / 2;
+  return corTotal + " " + corPlace;
+}
+
 app.get('/greetme', function(req, res) {
   res.send("Hello person");
 });
@@ -102,18 +125,22 @@ wss.on("connection", function(ws) {
       console.log("the host has made their selection");
       game.answer = message;
       game.player.send("go");
+      game.host.send("display " + message);
     } else {
       // The player has made a move
       console.log("the player has made a move");
-      game.host.send(message);
+      // Check how much of the move is correct.
+      game.host.send("playerAnswer " + message + " " +
+      amountCorrect(message, game.answer));
       // Check if correct
       if (game.answer == message) {
         console.log("the player move was correct");
-        game.player.send("win");
-        game.host.send("lose");
+        game.player.send("win " + message);
+        game.host.send("lose " + message);
       } else {
         console.log("the player move was false");
-        game.player.send("false");
+        game.player.send("false " + message + " " +
+        amountCorrect(message, game.answer));
       }
     }
   });

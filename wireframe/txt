@@ -1,0 +1,11 @@
+## Codemaster
+# Make a code
+# Wait for your opponent to guess the code
+# You get a point for each guess the opponent makes
+# After the code is guessed or the opponent runs out of guesses you switch sides
+
+## Codebreaker
+# Guess the code made by the opponent
+# You get the amount of correct colors and correct positions
+# Guess until you get it right
+# When you guess right or runn out of guesses you switch sides

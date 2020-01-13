@@ -5,3 +5,15 @@
 #aplhabet {
   color: "red";
 }
+
+.button {
+  background-color: #3366ff;
+  color: white;
+  padding: 20px, 34 px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px, 2px;
+
+
+}

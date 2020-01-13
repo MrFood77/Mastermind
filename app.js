@@ -75,9 +75,18 @@ wss.on("connection", function(ws) {
 
   console.log("Player connected with id as %s", connection.id);
 
+  console.log(connection.id + " disconnected ...");
+  // Someone closes the connection
   ws.on("close", function() {
-    console.log(connection.id + " disconnected ...");
-    // TODO: disconnection during gameplay.
+    // When a player closes the game, the other player automatically wins.
+    const game = websockets[ws.id];
+    if (game.host == ws) {
+      if (game.player === !null) {
+        game.player.send("win");
+      }
+    } else {
+      game.host.send("win");
+    }
   });
 
   // Incoming message from a player.

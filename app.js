@@ -8,7 +8,6 @@ class gameManager {
   }
 
   newPlayer(value) {
-    console.log("creating new player with value = " + value);
     if(this.host === null) {
       this.host = value;
       this.players = 1;
@@ -37,10 +36,6 @@ app.get('/', function (req, res) {
 app.get('/play', function (req, res) {
   res.sendFile("game.html", {root: "./public"});
 })
-
-/*app.get('/*', function (req, res) {
-  res.send("This route is not defined, please go to \'/\'");
-});*/
 
 app.use(express.static(__dirname + "/public"));
 var server = http.createServer(app);
@@ -75,9 +70,17 @@ wss.on("connection", function(ws) {
 
   console.log("Player connected with id as %s", connection.id);
 
+  // Someone closes the connection
   ws.on("close", function () {
-    console.log(connection.id + " disconnected ...");
-    // TODO: disconnection during gameplay.
+    // When a player closes the game, the other player automatically wins.
+    let game = websockets[ws.id];
+    if(game.host == ws) {
+      if(game.player === !null) {
+        game.player.send("win");
+      }
+    } else {
+      game.host.send("win");
+    }
   });
 
   // Incoming message from a player.

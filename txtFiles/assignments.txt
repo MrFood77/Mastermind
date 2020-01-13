@@ -1,8 +1,18 @@
 Assignment 4:
-    Examples:
-        - 
-        - 
-        - 
+    Examples: 
+        - https://www.archimedes-lab.org/mastermind.html
+            - Some of the communication is done through alerts.
+            - Game screen feels small and crammed.
+            - You can't delete individual moves.
+        - http://www.kidsmathgamesonline.com/logic/mastermind.html
+            - Because dragging is required, it is less accessible.
+            - It is not fullscreen, it wastes part of the screen.
+            - The picture drags away focus while not adding anything.
+        - https://www.webgamesonline.com/mastermind/
+            - Because dragging is required, it is less accessible.
+            - Uses fullscreen, making optimal usage of the screen.
+            - Feedback on moves is unclear. 
+
     4.3:
         - 
 Assignment 5: 

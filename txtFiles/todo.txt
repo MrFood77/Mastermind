@@ -1,0 +1,8 @@
+upload wireframes
+choose/make logo
+Nice looking splash.html
+Nice looking game.html
+
+Update splash.html with statistics
+Make assignments
+Remove jquery from the projects

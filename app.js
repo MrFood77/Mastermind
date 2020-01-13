@@ -47,15 +47,15 @@ const server = http.createServer(app);
 
 const wss = new websocket.Server({ server });
 
-const websockets = {};
-const gameID = 0; // Unique id given to each connection to identify them.
-const theGame = new GameManager(0);
+const websockets = new Map();
+let gameID = 0; // Unique id given to each connection to identify them.
+let theGame = new GameManager(0);
 
 wss.on("connection", function(ws) {
   const connection = ws;
   gameID++;
   connection.id = gameID;
-  websockets[connection.id] = theGame;
+  websockets.set(connection.id, theGame);
 
   if (theGame.players == 0) {
     // Our current connection is going to be a host
@@ -75,11 +75,10 @@ wss.on("connection", function(ws) {
 
   console.log("Player connected with id as %s", connection.id);
 
-  console.log(connection.id + " disconnected ...");
   // Someone closes the connection
   ws.on("close", function() {
     // When a player closes the game, the other player automatically wins.
-    const game = websockets[ws.id];
+    const game = websockets.get(ws.id);
     if (game.host == ws) {
       if (game.player === !null) {
         game.player.send("win");
@@ -91,9 +90,9 @@ wss.on("connection", function(ws) {
 
   // Incoming message from a player.
   ws.on("message", function incoming(message) {
-    const game = websockets[ws.id];
+    const game = websockets.get(ws.id);
 
-    console.log(websockets[ws.id].id);
+    console.log(websockets.get(ws.id).id);
     console.log("[LOG], game id: %s, hostid: %s, playerid: %s.", game.id,
         game.host.id, game.player.id);
     console.log("[LOG], send by %s, who is %s: %s", ws.id, ws.type, message);

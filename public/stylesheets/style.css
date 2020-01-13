@@ -1,19 +1,26 @@
-#title {
-  color: "red";
+* {
+  text-align: center;
 }
 
-#aplhabet {
-  color: "red";
+html {
+  background-color:  white;
+}
+
+.title {
+  color: white;
+}
+
+.divTitle {
+  background-color: #666666;
+  
 }
 
 .button {
   background-color: #3366ff;
+  border: none;
   color: white;
-  padding: 20px, 34 px;
   text-align: center;
   display: inline-block;
   font-size: 20px;
   margin: 4px, 2px;
-
-
 }

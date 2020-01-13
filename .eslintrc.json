@@ -16,6 +16,7 @@
     },
     "rules": {
 	"require-jsdoc": 0,
-	"quotes": 0
+	"quotes": 0,
+	"object-curly-spacing": 0
     }
 }

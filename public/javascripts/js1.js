@@ -5,11 +5,12 @@ let player = null;
 
 // Server stuff
 socket.onmessage = function(event) {
+  moves = event.data.split(' ');
   console.log(event.data);
   if (player === null) {
     player = event.data;
   }
-  switch (event.data) {
+  switch (moves[0]) {
     case "host":
       document.getElementById("instruction").innerHTML =
       "Waiting for players.";
@@ -32,22 +33,34 @@ socket.onmessage = function(event) {
       "The host has determined what the answer should be, start guessing!";
       addTempRow("first", "second", "third", "fourth");
       break;
-    case "false":
-      document.getElementById("instruction").innerHTML =
-      "That answer was false, try again.";
-      addTempRow("first", "second", "third", "fourth");
-      break;
     case "win":
       document.getElementById("instruction").innerHTML =
       "Congratulations, you won!";
+      addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
       break;
     case "lose":
       document.getElementById("instruction").innerHTML =
       "Sadly, you have lost.";
+      addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
+      break;
+    case "playerAnswer":
+      // What do to when the player sends an answer to the host?
+      document.getElementById("instruction").innerHTML =
+      "The player has send an aswer.";
+      addPermaRow6(moves[1], moves[2], moves[3], moves[4], moves[5], moves[6]);
+      break;
+    case "display":
+      addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
+      break;
+    case "false":
+      // What to do when the player makes a false move?
+      document.getElementById("instruction").innerHTML =
+      "Your answer was false.";
+      addPermaRow6(moves[1], moves[2], moves[3], moves[4], moves[5], moves[6]);
+      addTempRow("first", "second", "third", "fourth");
       break;
     default:
-      const words = event.data.split(' ');
-      addPermaRow(words[0], words[1], words[2], words[3]);
+      console.log("PROBLEMS");
       break;
   }
 };
@@ -60,7 +73,26 @@ function myFunction(a) {
   selector = a;
 }
 
-function addPermaRow(a, b, c, d) {
+function addPermaRow6(a, b, c, d, e, f) {
+  const newRow = document.createElement("tr");
+  const th1 = document.createElement("th");
+  th1.innerHTML = a;
+  const th2 = document.createElement("th");
+  th2.innerHTML = b;
+  const th3 = document.createElement("th");
+  th3.innerHTML = c;
+  const th4 = document.createElement("th");
+  th4.innerHTML = d;
+  const th5 = document.createElement("th");
+  th5.innerHTML = e;
+  const th6 = document.createElement("th");
+  th6.innerHTML = f;
+  newRow.append(th5, th1, th2, th3, th4, th6);
+
+  $("#gameTable").append(newRow);
+}
+
+function addPermaRow4(a, b, c, d) {
   const newRow = document.createElement("tr");
   const th1 = document.createElement("th");
   th1.innerHTML = a;
@@ -114,7 +146,7 @@ function addTempRow(a, b, c, d) {
     const fourth = document.getElementById("fourth").innerHTML;
 
     removeRow();
-    addPermaRow(first, second, third, fourth);
+    // vaddPermaRow4(first, second, third, fourth);
 
     const move = first + " " + second + " " + third + " " + fourth;
     socket.send(move);

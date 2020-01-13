@@ -1,9 +1,10 @@
 * {
   text-align: center;
+  color: white;
 }
 
 html {
-  background-color:  #000000;
+  background-color:  #002b36;
 }
 
 .title {
@@ -11,7 +12,7 @@ html {
 }
 
 .divTitle {
-  background-color: #666666;
+  background-color: #657b83;
   
 }
 

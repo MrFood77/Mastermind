@@ -7,13 +7,38 @@ html {
   background-color:  #002b36;
 }
 
-.title {
-  color: white;
+#codeBreaker {
+  background-color: #657b83;
+  float: right;
 }
 
-.divTitle {
+#codeMaker {
   background-color: #657b83;
-  
+  float: left;
+}
+
+#statField {
+  background-color: #657b83;
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  width: 100px;
+}
+
+#startButton {
+  background-color: #657b83;
+  position: relative;
+  top: 200px;
+  left: calc(50% - 50px);
+  width: 100px;
+}
+
+#divTitle {
+  background-color: #657b83;
+}
+
+.title {
+  color: white;
 }
 
 .button {

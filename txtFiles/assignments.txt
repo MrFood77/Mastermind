@@ -1,7 +1,7 @@
 Assignment 4:
     Examples: 
         - https://www.archimedes-lab.org/mastermind.html
-            - Some of the communication is done through alerts.
+            - Some of the communication is done through alerts
             - Game screen feels small and crammed.
             - You can't delete individual moves.
         - http://www.kidsmathgamesonline.com/logic/mastermind.html

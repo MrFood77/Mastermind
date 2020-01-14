@@ -142,6 +142,7 @@ wss.on("connection", function(ws) {
         game.player.send("win " + message);
         game.host.send("lose " + message);
         numberOfMoves += localNumberOfMoves;
+        numberOfGames++;
       } else {
         console.log("the player move was false");
         game.player.send("false " + message + " " +

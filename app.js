@@ -26,7 +26,7 @@ const websocket = require("ws");
 const port = process.argv[2];
 const app = express();
 
-let averageMoves = 0;
+let numberOfMoves = 0;
 let numberOfGames = 0;
 
 function amountCorrect(a, b) {
@@ -97,7 +97,7 @@ wss.on("connection", function(ws) {
     theGame.player.send("ready");
     theGame.host.send("start");
     theGame = new GameManager();
-    numberOfMoves = 0;
+    localNumberOfMoves = 0;
   }
 
   console.log("Player connected with id as %s", connection.id);
@@ -141,13 +141,12 @@ wss.on("connection", function(ws) {
         console.log("the player move was correct");
         game.player.send("win " + message);
         game.host.send("lose " + message);
-        averageMoves =
-          ( averageMoves * numberOfGames + numberOfMoves ) / numberOfGames++;
+        numberOfMoves += localNumberOfMoves;
       } else {
         console.log("the player move was false");
         game.player.send("false " + message + " " +
         amountCorrect(message, game.answer));
-        numberOfMoves++;
+        localNumberOfMoves++;
       }
     }
   });

@@ -53,9 +53,12 @@ html {
   width: 100px;
   padding: 10px;
   border-radius: 5px;
+  height: 50;
 }
 
-
+#startButton:hover {
+  background-color: #dc322f;  
+}
 
 #divTitle {
   background-color: var(--my-background);

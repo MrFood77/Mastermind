@@ -1,17 +1,29 @@
 Assignment 4:
     Examples: 
         - https://www.archimedes-lab.org/mastermind.html
-            - Some of the communication is done through alerts
-            - Game screen feels small and crammed.
-            - You can't delete individual moves.
         - http://www.kidsmathgamesonline.com/logic/mastermind.html
-            - Because dragging is required, it is less accessible.
-            - It is not fullscreen, it wastes part of the screen.
-            - The picture drags away focus while not adding anything.
         - https://www.webgamesonline.com/mastermind/
-            - Because dragging is required, it is less accessible.
-            - Uses fullscreen, making optimal usage of the screen.
-            - Feedback on moves is unclear. 
+
+        1) "Dont make me think"
+            None of the selected websites have a clear UI, we need to think about how to play pieces.
+            See "/Example1.PNG"
+        2) "Minimize noise and clutter"
+            There is a lot of noise and clutter on this site.
+            Most of the clutter has even been removed by my adblocker.
+            See "/Example2.PNG"
+        3) "Performace"
+            This website uses Flash.
+            See "/Example3.PNG"
+        
+        Game features:
+        Positive:
+        1) Nr 2 has animations which add to the feel of game.
+        2) You can change the code length and other rules of the game.
+        3) It has a colorblind-friendly version.
+        Negative:
+        1) In Nr 1 the buttons are small and hard to press.
+        2) None of the games allow you to be game master instead of only game breaker.
+        3) None of them have sound.
 
     4.3:
         - 

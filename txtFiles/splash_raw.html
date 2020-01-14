@@ -2,12 +2,12 @@
 <html>
   <head>
     <title>Mastermind</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/style.css" /> -->
   </head>
   <body>
     <main>
       <div id="divTitle">
-        <h1 class="title">Welcome to Mastermind</h1>
+        <h1 class="title">Welcome to mastermind</br></h1>
       </div>
 
       <div id="codeMaker">
@@ -15,7 +15,7 @@
         1. Make a code.</br>
         2. Wait for your opponent to guess your code.</br>
         3. Your opponent has 8 guesses.</br>
-        4. If they can't break the code, you win.
+        4. If they can't break the code, you win.</br></br>
       </div>
 
       <div id="codeBreaker">
@@ -23,19 +23,20 @@
         1. Wait for your opponent to make a code.</br>
         2. Guess the code made by the opponent.</br>
         3. You have 8 guesses.</br>
-        4. If you break the code, you win.
+        4. If you break the code, you win.</br></br>
       </div id="codeBreaker">
 
-      <div id="startButton" onclick="location.href='http://localhost:3000/play'">
-        Play game
-      </div>
+      <div id="startButton">
+        <a href="http://localhost:3000/play">Let's get to it!</a>
+        </br></br>
+      </div id="startButton">
 
       <div id="statField">
         Statistics:</br>
           - x games currently being played.</br>
           - x players currently waiting in lobby</br>
-          - x games played since last server restart.
-      </div>
+          - x games played since last server restart.</br></br>
+      </div id="statField">
     </main>
   </body>
 </html>

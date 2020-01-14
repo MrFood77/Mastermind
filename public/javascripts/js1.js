@@ -69,6 +69,14 @@ socket.onopen = function() {
   console.log("Socket openened");
 };
 
+function removeRow() {
+  $("#tempRow").remove();
+}
+
+function rowClicked(a) {
+  document.getElementById(a).innerHTML = selector;
+}
+
 function myFunction(a) {
   selector = a;
 }
@@ -152,21 +160,3 @@ function addTempRow(a, b, c, d) {
     socket.send(move);
   });
 }
-
-function removeRow() {
-  $("#tempRow").remove();
-}
-
-function rowClicked(a) {
-  document.getElementById(a).innerHTML = selector;
-}
-
-// Function for when the site opens
-$( document ).ready( function() {});
-
-/*
-
-
-var move = [first, second, third, fourth]
-addTempRow("first", "second", "third", "fourth");
-*/

@@ -23,7 +23,11 @@ const express = require("express");
 const http = require("http");
 const websocket = require("ws");
 
-const port = process.argv[2];
+// If no port is provided, use port 3000.
+let port = 3000;
+if (process.argv[2]) {
+  port = process.argv[2];
+}
 const app = express();
 
 let numberOfMoves = 0;

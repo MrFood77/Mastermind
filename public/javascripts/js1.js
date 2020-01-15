@@ -11,6 +11,11 @@ socket.onmessage = function(event) {
     player = event.data;
   }
   switch (moves[0]) {
+    case "invalid":
+      document.getElementById("instruction").innerHTML =
+      "That move was invalid, try again.";
+      addTempRow("red", "red", "red", "red");
+      break;
     case "host":
       document.getElementById("instruction").innerHTML =
       "Waiting for players.";

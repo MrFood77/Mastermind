@@ -68,6 +68,19 @@ app.get('/play', function(req, res) {
   res.send("This route is not defined, please go to \'/\'");
 });*/
 
+// Function for checking whether a given move is valid.
+function validMove(a) {
+  const moves = a.split(' ');
+  for (i = 0; i < 4; i++) {
+    console.log(i);
+    if (!(moves[i]=='red' || moves[i]=='blue' ||
+        moves[i]=='green' || moves[i]=='pink')) {
+      return false;
+    }
+  }
+  return true;
+}
+
 app.use(express.static(__dirname + "/public"));
 const server = http.createServer(app);
 
@@ -119,35 +132,40 @@ wss.on("connection", function(ws) {
   ws.on("message", function incoming(message) {
     const game = websockets.get(ws.id);
 
-    console.log(websockets.get(ws.id).id);
-    console.log("[LOG], game id: %s, hostid: %s, playerid: %s.", game.id,
-        game.host.id, game.player.id);
-    console.log("[LOG], send by %s, who is %s: %s", ws.id, ws.type, message);
-
-    if (game.host == ws) {
-      // The host has made their selection.
-      console.log("the host has made their selection");
-      game.answer = message;
-      game.player.send("go");
-      game.host.send("display " + message);
+    // Check whether the given move is valid.
+    // If it's not valid
+    if (!validMove(message)) {
+      ws.send("invalid");
     } else {
-      // The player has made a move
-      console.log("the player has made a move");
-      // Check how much of the move is correct.
-      game.host.send("playerAnswer " + message + " " +
-      amountCorrect(message, game.answer));
-      // Check if correct
-      if (game.answer == message) {
-        console.log("the player move was correct");
-        game.player.send("win " + message);
-        game.host.send("lose " + message);
-        numberOfMoves += localNumberOfMoves;
-        numberOfGames++;
+      console.log(websockets.get(ws.id).id);
+      console.log("[LOG], game id: %s, hostid: %s, playerid: %s.", game.id,
+          game.host.id, game.player.id);
+      console.log("[LOG], send by %s, who is %s: %s", ws.id, ws.type, message);
+      if (game.host == ws) {
+        // The host has made their selection.
+        console.log("the host has made their selection");
+        game.answer = message;
+        game.player.send("go");
+        game.host.send("display " + message);
       } else {
-        console.log("the player move was false");
-        game.player.send("false " + message + " " +
+        // The player has made a move
+        console.log("the player has made a move");
+        // Check how much of the move is correct.
+        game.host.send("playerAnswer " + message + " " +
         amountCorrect(message, game.answer));
-        localNumberOfMoves++;
+        // Check if correct
+        if (game.answer == message) {
+          console.log("the player move was correct");
+          game.player.send("win " + message);
+          game.host.send("lose " + message);
+          numberOfMoves += localNumberOfMoves;
+          numberOfGames++;
+        } else {
+          console.log("the player move was false");
+          game.player.send("false " + message + " " +
+          amountCorrect(message, game.answer));
+          localNumberOfMoves++;
+        }
       }
     }
   });

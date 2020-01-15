@@ -1,11 +1,9 @@
-upload wireframes
-choose/make logo
-Nice looking splash.html
-Nice looking game.html
-
-Update splash.html with statistics
-Make assignments
-Remove jquery from the projects
-
-ask do we need message types.
-ask do we need design pattern for client.
+Statistics in splash.html
+HTML of game screen
+CSS of game screen
+Max moves
+Using objects and design pattern in js1.js
+    - Add changes in design pattern to assignments.txt
+Finish all the text assignments.
+Turn assignments into PDF and hand them in.
+Check all assignments.

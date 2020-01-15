@@ -57,6 +57,7 @@ html {
   border-color: #dc322f;
   border-width: 4px;
   border-radius: 5px;
+  transition: background-color 1s ease;
 }
 
 #startButton:hover {

@@ -19,19 +19,19 @@ html {
 
 #codeBreaker {
   background-color: var(--my-background);
-  widows: 300px;
+  width: 300px;
   position: absolute;
-  left: calc(100% - 350px);
-  top: 100px;
-  padding: 10px;
+  right: 60px;
+  top: 130px;
+  
 }
 
 #codeMaker {
   background-color: var(--my-background);
   width: 300px;
-  position: absolute;
-  left: 50px;
-  top: 100px;
+  position: relative;
+  margin-top: 50px;
+  margin-left: 50px;
   padding: 10px;
 }
 
@@ -52,20 +52,56 @@ html {
   left: calc(50% - 55px);
   width: 100px;
   padding: 10px;
-  border-radius: 5px;
   height: 50;
+  border: ridge;
+  border-color: #dc322f;
+  border-width: 4px;
+  border-radius: 5px;
 }
 
 #startButton:hover {
-  background-color: #dc322f;  
+  background-color: #dc322f;
+}
+
+#startButton:active {
+  background-color: #d33682;
 }
 
 #divTitle {
   background-color: var(--my-background);
 }
 
+#codeBreaker:hover,#codeMaker:hover,#statField:hover,#divTitle:hover {
+  -webkit-animation: colors;
+  animation: colors;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  color: #cb4b16;
+}
+
+@keyframes colors {
+  from { color: white; }
+  to {color: #cb4b16; }
+}
+
 #colourSelector {
   color: var(--my-background);
+}
+
+#colourSelectorSplash {
+  margin-top: 50px;
+}
+
+.title::after {
+  content: url(https://upload.wikimedia.org/wikipedia/commons/3/34/Android_Emoji_2122.svg);
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.title::before {
+  content: "W";
+  font-size: 40px;
 }
 
 .pink {

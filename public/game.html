@@ -9,23 +9,33 @@
     <main>
       <div class="divTitle">
         <h1 class="title">Mastermind</h1>
-      </div>
-      <p id="instruction"></p>
+			</div>
+			
+			<div id="instructionField">
+      	<p id="instruction"></p>
+			</div>
 
+			<div>
+      	<table id="gameTable">      
+				</table>
+			</div>
 
-      <table id="gameTable">      
-      </table>
-
-
-      <p>Here is the colour selection, pick one: </p>
-      <table id="colourSelection">
-        <tr>
-          <th id="redSelector" onClick="myFunction('red')">red </th>
-          <th id="greenSelector" onClick="myFunction('green')">green </th id="redSelector" onClick="myFunction('red')">
-          <th id="blueSelector" onClick="myFunction('blue')">blue </th id="redSelector" onClick="myFunction('red')">
-          <th id="yellowSelector" onClick="myFunction('yellow')">yellow </th id="redSelector" onClick="myFunction('red')">
-        </tr>
-      </table>
+			<div id="colourSelector">
+				<table>
+					<tr><th class="pink" onclick="colourSelector('pink')">
+						<!-- pink -->
+					</th></tr>
+					<tr><th class="green" onclick="colourSelector('green')">
+						<!-- green -->
+					</th></tr>
+					<tr><th class="red" onclick="colourSelector('red')">
+						<!-- red -->
+					</th></tr>
+					<tr><th class="blue" onclick="colourSelector('blue')">
+						<!-- blue -->
+					</th></tr>
+				</table>
+			</div>
     </main>
 
     <script type="text/javascript" src="javascripts/js1.js"></script>

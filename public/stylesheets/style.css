@@ -63,3 +63,43 @@ html {
 #divTitle {
   background-color: var(--my-background);
 }
+
+#colourSelector {
+  color: var(--my-background);
+}
+
+.pink {
+  opacity: 100;
+  height: 25px;
+  width: 25px;
+  background-color: pink;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.green {
+  opacity: 100;
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  opacity: 100;
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.blue {
+  opacity: 100;
+  height: 25px;
+  width: 25px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}

@@ -13,45 +13,45 @@ socket.onmessage = function(event) {
   switch (moves[0]) {
     case "invalid":
       document.getElementById("instruction").innerHTML =
-      "That move was invalid, try again.";
+        "That move was invalid, try again.";
       addTempRow("red", "red", "red", "red");
       break;
     case "host":
       document.getElementById("instruction").innerHTML =
-      "Waiting for players.";
+        "Waiting for players.";
       break;
     case "player":
       document.getElementById("instruction").innerHTML =
-      "Waiting for players.";
+        "Waiting for players.";
       break;
     case "start":
       document.getElementById("instruction").innerHTML =
-      "Players found, you are the host, please start.";
+        "Players found, you are the host, please start.";
       addTempRow("red", "red", "red", "red");
       break;
     case "ready":
       document.getElementById("instruction").innerHTML =
-      "Players found, wait for the host to determine the answer.";
+        "Players found, wait for the host to determine the answer.";
       break;
     case "go":
       document.getElementById("instruction").innerHTML =
-      "The host has determined what the answer should be, start guessing!";
+        "The host has determined what the answer should be, start guessing!";
       addTempRow("red", "red", "red", "red");
       break;
     case "win":
       document.getElementById("instruction").innerHTML =
-      "Congratulations, you won!";
+        "Congratulations, you won!";
       addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
       break;
     case "lose":
       document.getElementById("instruction").innerHTML =
-      "Sadly, you have lost.";
+        "Sadly, you have lost.";
       addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
       break;
     case "playerAnswer":
       // What do to when the player sends an answer to the host?
       document.getElementById("instruction").innerHTML =
-      "The player has send an aswer.";
+        "The player has send an aswer.";
       addPermaRow6(moves[1], moves[2], moves[3], moves[4], moves[5], moves[6]);
       break;
     case "display":
@@ -60,12 +60,13 @@ socket.onmessage = function(event) {
     case "false":
       // What to do when the player makes a false move?
       document.getElementById("instruction").innerHTML =
-      "Your answer was false.";
+        "Your answer was false.";
       addPermaRow6(moves[1], moves[2], moves[3], moves[4], moves[5], moves[6]);
       addTempRow("red", "red", "red", "red");
       break;
     case "disconnected":
-      console.log("To be implemented");
+      document.getElementById("instruction").innerHTML =
+        "The other player has disconnected.";
       break;
     case "outOfMoves":
       console.log("To be implemented");

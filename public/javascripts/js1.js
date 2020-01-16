@@ -69,7 +69,8 @@ socket.onmessage = function(event) {
         "The other player has disconnected.";
       break;
     case "outOfMoves":
-      console.log("To be implemented");
+      document.getElementById("instruction").innerHTML =
+        "You have run out of moves, better luck next time.";
       break;
     default:
       console.log("An unexpected error has occured");

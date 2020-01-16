@@ -187,7 +187,7 @@ wss.on("connection", function(ws) {
           console.log("the player move was false");
           if (localNumberOfMoves >= 8) {
             game.player.send("outOfMoves");
-            game.host.send("outOfMoves");
+            game.host.send("won");
           } else {
             game.player.send("false " + message + " " +
             amountCorrect(message, game.answer));

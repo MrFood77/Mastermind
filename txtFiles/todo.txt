@@ -1,4 +1,4 @@
-Statistics in splash.html
+~~Statistics in splash.html
 HTML of game screen
 CSS of game screen
 Max moves

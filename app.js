@@ -185,9 +185,14 @@ wss.on("connection", function(ws) {
           currentGames--;
         } else {
           console.log("the player move was false");
-          game.player.send("false " + message + " " +
-          amountCorrect(message, game.answer));
-          localNumberOfMoves++;
+          if (localNumberOfMoves >= 8) {
+            game.player.send("outOfMoves");
+            game.host.send("outOfMoves");
+          } else {
+            game.player.send("false " + message + " " +
+            amountCorrect(message, game.answer));
+            localNumberOfMoves++;
+          }
         }
       }
     }

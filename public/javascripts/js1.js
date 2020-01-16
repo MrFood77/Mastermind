@@ -64,8 +64,14 @@ socket.onmessage = function(event) {
       addPermaRow6(moves[1], moves[2], moves[3], moves[4], moves[5], moves[6]);
       addTempRow("red", "red", "red", "red");
       break;
+    case "disconnected":
+      console.log("To be implemented");
+      break;
+    case "outOfMoves":
+      console.log("To be implemented");
+      break;
     default:
-      console.log("PROBLEMS");
+      console.log("An unexpected error has occured");
       break;
   }
 };

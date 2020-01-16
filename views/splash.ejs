@@ -1,0 +1,64 @@
+<!-- templates/splash.ejs -->
+<html>
+	<head>
+		<title>Mastermind</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+	</head>
+	<body>
+		<main>
+			<div id="divTitle">
+				<h1 class="title">elcome to Mastermind</h1>
+			</div>
+
+			<div id="codeMaker">
+				CodeMaker
+				<ol>
+					<li> Make a code.</li>
+					<li> Wait for your opponent to guess your code.</li>
+					<li> Your opponent has 8 guesses.</li>
+					<li> If they can't break the code, you win.</li>
+				</ol>
+			</div>
+
+			<div id="codeBreaker">
+				CodeBreaker
+				<ol>
+					<li> Wait for your opponent to make a code.</li>
+					<li> Guess the code made by the opponent.</li>
+					<li> You have 8 guesses.</li>
+					<li> If you break the code, you win.</li>
+				</ol>
+			</div id="codeBreaker">
+
+			<div id="startButton" onclick="location.href='http://localhost:3000/play'">
+				Play game
+			</div>
+
+			<div id="statField">
+				Statistics:
+				<ul>
+					<li> <%= currentGames %> games currently being played.</li>
+					<li> <%= averageMoves %> guesses on average</li>
+					<li> <%= totalGames %> games played since last server restart.</li>
+				</ul>
+			</div>
+
+			<div id="colourSelectorSplash">
+				<table>
+					<tr><th class="pink" onclick="colourSelector('pink')">
+							<!-- pink -->
+						</th></tr>
+						<tr><th class="green" onclick="colourSelector('green')">
+								<!-- green -->
+							</th></tr>
+							<tr><th class="red" onclick="colourSelector('red')">
+									<!-- red -->
+								</th></tr>
+								<tr><th class="blue" onclick="colourSelector('blue')">
+										<!-- blue -->
+									</th></tr>
+				</table>
+			</div>
+		</main>
+	</body>
+</html>

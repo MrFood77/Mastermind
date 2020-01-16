@@ -22,6 +22,7 @@ class GameManager {
 const express = require("express");
 const http = require("http");
 const websocket = require("ws");
+const ejs = require("ejs");
 
 // If no port is provided, use port 3000.
 let port = 3000;
@@ -30,8 +31,12 @@ if (process.argv[2]) {
 }
 const app = express();
 
+app.set('view engine', 'ejs');
+app.use(express.static('./'));
+
 let numberOfMoves = 0;
 let numberOfGames = 0;
+let currentGames = 0;
 
 function amountCorrect(a, b) {
   const moves = a.split(' ');
@@ -56,21 +61,32 @@ function amountCorrect(a, b) {
   return corTotal + " " + corPlace;
 }
 
-app.get('/greetme', function(req, res) {
-  res.send("Hello person");
-});
+// app.get('/greetme', function(req, res) {
+//   res.send("Hello person");
+// });
 
 app.get('/', function(req, res) {
-  res.sendFile("splash.html", {root: "./public"});
+  // res.sendFile("splash.html", {root: "./public"});
+  const n = numberOfMoves / numberOfGames;
+  const averageMoves = n !== n ? "No games played" : n;
+  res.render("splash", {
+    currentGames: currentGames,
+    totalGames: numberOfGames,
+    averageMoves: averageMoves,
+  });
 });
 
 app.get('/play', function(req, res) {
   res.sendFile("game.html", {root: "./public"});
 });
 
-/* app.get('/*', function (req, res) {
-  res.send("This route is not defined, please go to \'/\'");
-});*/
+app.get('/stylesheets/style.css', function(req, res) {
+  res.sendFile("stylesheets/style.css");
+});
+
+app.get('/*', function(req, res) {
+  res.send("ERROR 404: path not defined");
+});
 
 // Function for checking whether a given move is valid.
 function validMove(a) {
@@ -115,6 +131,7 @@ wss.on("connection", function(ws) {
     theGame.host.send("start");
     theGame = new GameManager();
     localNumberOfMoves = 0;
+    currentGames++;
   }
 
   console.log("Player connected with id as %s", connection.id);
@@ -125,11 +142,12 @@ wss.on("connection", function(ws) {
     const game = websockets.get(ws.id);
     if (game.host == ws) {
       if (game.player === !null) {
-        game.player.send("win");
+        game.player.send("disconnected");
       }
     } else {
-      game.host.send("win");
+      game.host.send("disconnected");
     }
+    currentGames--;
   });
 
   // Incoming message from a player.
@@ -164,6 +182,7 @@ wss.on("connection", function(ws) {
           game.host.send("lose " + message);
           numberOfMoves += localNumberOfMoves;
           numberOfGames++;
+          currentGames--;
         } else {
           console.log("the player move was false");
           game.player.send("false " + message + " " +

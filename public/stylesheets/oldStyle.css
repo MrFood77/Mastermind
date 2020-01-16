@@ -19,7 +19,7 @@ html {
 
 #codeBreaker {
   background-color: var(--my-background);
-  width: 400px;
+  width: 300px;
   position: absolute;
   right: 60px;
   top: 130px;
@@ -28,7 +28,7 @@ html {
 
 #codeMaker {
   background-color: var(--my-background);
-  width: 400px;
+  width: 300px;
   position: relative;
   margin-top: 50px;
   margin-left: 50px;
@@ -37,10 +37,10 @@ html {
 
 #statField {
   background-color: var(--my-background);
-  position: fixed;
-  bottom: 50;
-  right: 50;
-  width: 400px;
+  position: absolute;
+  top: calc(100% - 125px);
+  left: calc(100% - 350px);
+  width: 300px;
   height: 75px;
   padding: 10px;
 }
@@ -52,7 +52,7 @@ html {
   left: calc(50% - 55px);
   width: 100px;
   padding: 10px;
-  height: 20px;
+  height: 50;
   border: ridge;
   border-color: #dc322f;
   border-width: 4px;

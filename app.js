@@ -32,7 +32,7 @@ if (process.argv[2]) {
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static('./'));
+app.use(express.static('public'));
 
 let numberOfMoves = 0;
 let numberOfGames = 0;

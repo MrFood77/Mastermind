@@ -3,6 +3,15 @@ let selector = "red";
 const socket = new WebSocket("ws://localhost:3000");
 let player = null;
 
+function Moves() {
+  this.previous = [];
+
+  // checks if the move has already been done
+  this.notDone = function() {
+    console.log("To be implemented");
+  };
+}
+
 // Server stuff
 socket.onmessage = function(event) {
   moves = event.data.split(' ');

@@ -31,6 +31,7 @@ if (process.argv[2]) {
 }
 const app = express();
 
+app.set('views', __dirname + '/public');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 

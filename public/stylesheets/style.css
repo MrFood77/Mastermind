@@ -1,5 +1,3 @@
-
-
 * {
   text-align: center;
   color: white;
@@ -71,6 +69,43 @@ html {
 #divTitle {
   background-color: var(--my-background);
 }
+
+#colourSelector {
+  position: absolute;
+  left: 50px;
+  top: calc(100% - 158px);
+}
+
+.gameTable {
+
+}
+
+#gameTable {
+  text-align: center;
+  width: 25%;
+  position: static;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+tr {
+  border: 5px solid;
+}
+
+th {
+  width: 30px;
+  border-color: white;
+  border: 5px;
+  border-collapse: collapse;
+  border
+  column-span: all;
+}
+
+#instructionField {
+
+}
+
 
 #codeBreaker:hover,#codeMaker:hover,#statField:hover,#divTitle:hover {
   -webkit-animation: colors;

@@ -123,6 +123,8 @@ function addPermaRow6(a, b, c, d, e, f) {
 }
 
 function addPermaRow4(a, b, c, d) {
+  const th0 = document.createElement("th");
+  th0.innerHTML = "";
   const newRow = document.createElement("tr");
   const th1 = document.createElement("th");
   th1.className = a;
@@ -132,7 +134,9 @@ function addPermaRow4(a, b, c, d) {
   th3.className = c;
   const th4 = document.createElement("th");
   th4.className = d;
-  newRow.append(th1, th2, th3, th4);
+  const th5 = document.createElement("th");
+  th0.innerHTML = "";
+  newRow.append(th0, th1, th2, th3, th4, th5);
 
   $("#gameTable").append(newRow);
 }
@@ -153,11 +157,14 @@ function addTempRow(a, b, c, d) {
   th4.classList.add('row', d);
   th4.id = "fourth";
 
+  const th0 = document.createElement("th");
+  th0.innerHTML = "";
+
   const th5 = document.createElement("th");
   th5.id = "done";
-  th5.innerHTML = "I'm done making a selection";
+  th5.innerHTML = "Submit";
 
-  newRow.append(th1, th2, th3, th4, th5);
+  newRow.append(th0, th1, th2, th3, th4, th5);
 
   $("#gameTable").append(newRow);
 

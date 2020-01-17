@@ -57,7 +57,7 @@ function amountCorrect(a, b) {
       }
     }
   }
-  return (corTotal / 2) + " " + corPlace;
+  return corTotal + " " + (corPlace / 2);
 }
 
 // app.get('/greetme', function(req, res) {

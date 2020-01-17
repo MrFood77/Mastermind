@@ -1,1 +1,139 @@
-lalal
+Web Development Assignemnt 4.
+
+1.1) 
+Request:
+	HEAD / HTTP/1.1
+	Host: www.surfweer.nl
+Response: 
+	HTTP/1.1 301 Moved Permanently
+	Date: Sun, 05 Jan 2020 08:08:42 GMT
+	Content-Type: text/html; charset=iso-8859-1
+	Connection: keep-alive
+	Set-Cookie: __cfduid=d5598b587f432cd1782b9c2c937d3d4211578211722; expires=Tue, 04-Feb-20 08:08:42 GMT; path=/; domain=.surfweer.nl; HttpOnly; SameSite=Lax
+	Location: http://surfweer.nl/
+	CF-Cache-Status: DYNAMIC
+	Server: cloudflare
+	CF-RAY: 5503f7161901730b-AMS
+Request: 
+	HEAD / HTTP/1.1
+	Host: surfweer.nl
+Response: 
+	HTTP/1.1 200 OK
+	Date: Sun, 05 Jan 2020 08:11:48 GMT
+	Content-Type: text/html; charset=UTF-8
+	Connection: keep-alive
+	Set-Cookie: __cfduid=df931f4f84db0b134e702d484f91f9f081578211908; expires=Tue, 04-Feb-20 08:11:48 GMT; path=/; domain=.surfweer.nl; HttpOnly; SameSite=Lax	
+	X-Powered-By: PHP/5.6.7
+	Link: <http://surfweer.nl/wp-json/>; rel="https://api.w.org/"
+	Vary: User-Agent
+	CF-Cache-Status: DYNAMIC
+	Server: cloudflare
+	CF-RAY: 5503fb9df8ccbf46-AMS
+
+1.2) Yes it does.
+
+1.3)
+X-Cache tag: Shows that the request was handled by a web cache.
+transfer-encoding: Determnines how the body of the page is send to the user.
+
+1.4) 
+No Cache control
+
+2.1)
+PUT /random781 HTTP/1.1
+host:httpbin.org
+Content-type:text/plain
+Content-length:12
+Hello World!
+
+Works when content length is correct.
+When content length is smaller than it should be, the rest of the message is cut off. 
+eg "Hello World!" becomes "Hello worl" with content size 10 instead of 12.
+When content-length is larger than it should be, it is made the same size by adding '/r'.
+
+3.1)
+You do not have to refill the credentials again, as the web browser remembers them and sends them with the request.
+
+3.2)
+First request:
+	telnet httpbin.org 80
+	Trying 52.5.93.55...
+	Connected to httpbin.org.
+	Escape character is '^]'.
+	HEAD /basic-auth/user/passwd HTTP/1.1
+	host:httpbin.org
+	
+	HTTP/1.1 401 UNAUTHORIZED
+	Access-Control-Allow-Credentials: true
+	Access-Control-Allow-Origin: *
+	Content-Length: 0
+	Date: Tue, 14 Jan 2020 12:22:12 GMT
+	Referrer-Policy: no-referrer-when-downgrade	
+	Server: nginx
+	WWW-Authenticate: Basic realm="Fake Realm"
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+	X-XSS-Protection: 1; mode=block
+	Connection: keep-alive
+Second request:
+	telnet httpbin.org 80
+	Trying 34.202.21.120...
+	Connected to httpbin.org.
+	Escape character is '^]'.
+	HEAD /basic-auth/user/passwd HTTP/1.1
+	host:httpbin.org
+	Authorization: Basic dXNlcjpwYXNzd2Q=
+	
+	HTTP/1.1 200 OK
+	Access-Control-Allow-Credentials: true
+	Access-Control-Allow-Origin: *
+	Content-Length: 47
+	Content-Type: application/json
+	Date: Tue, 14 Jan 2020 12:27:43 GMT
+	Referrer-Policy: no-referrer-when-downgrade
+	Server: nginx
+	X-Content-Type-Options: nosniff
+	X-Frame-Options: DENY
+	X-XSS-Protection: 1; mode=block
+	Connection: keep-alive
+When retrying the connection again, it responds with a 401.
+Telnet does not remember to add automatic authorization to the request.
+
+4.1) 
+Mastermind
+
+4.1)
+Examples: 
+        - https://www.archimedes-lab.org/mastermind.html
+        - http://www.kidsmathgamesonline.com/logic/mastermind.html
+        - https://www.webgamesonline.com/mastermind/
+
+        1) "Dont make me think"
+            None of the selected websites have a clear UI, we need to think about how to play pieces.
+            See "/Example1.PNG"
+        2) "Minimize noise and clutter"
+            There is a lot of noise and clutter on this site.
+            Most of the clutter has even been removed by my adblocker.
+            See "/Example2.PNG"
+        3) "Performace"
+            This website uses Flash.
+            See "/Example3.PNG"
+        
+        Game features:
+        Positive:
+        1) Nr 2 has animations which add to the feel of game.
+        2) You can change the code length and other rules of the game.
+        3) It has a colorblind-friendly version.
+        Negative:
+        1) In Nr 1 the buttons are small and hard to press.
+        2) None of the games allow you to be game master instead of only game breaker.
+        3) None of them have sound.
+
+5.1)
+See ./wireframe/gameSplash.png
+
+5.2)
+See ./wireframe/gameScreen.png
+
+5.3)
+Needs to be posted.

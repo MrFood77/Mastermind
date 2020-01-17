@@ -37,7 +37,7 @@ X-Cache tag: Shows that the request was handled by a web cache.
 transfer-encoding: Determnines how the body of the page is send to the user.
 
 1.4) 
-It tells the client for how long the retrieved item will be _fresh_, meaning how old it can get before a new version should be requested
+It tells the client for how long the retrieved item will be _fresh_, meaning how old it can get before a new version should be requested.
 
 2.1)
 PUT /random781 HTTP/1.1

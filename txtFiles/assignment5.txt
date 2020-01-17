@@ -1,0 +1,57 @@
+Assignment 5: 
+2.1)
+    - Plan of action for JS client side:
+    Interactive UI elements:
+        - Mouse click in the colour-selector: Update the selector to the specific colour.
+        - Mouse click in the game-table: Update the value of that pin.
+        - Click on send button: Submit this guess.
+
+2.2)
+    We use Design Pattern I: Basic constructor, because the game manager stays constant
+    throughout the entire game, and we don't need different versions of it,
+    the other objects are stored as a state in the webpage.
+    
+3.3)
+    The list:
+    Messages send by:
+    - Codemaker:
+        "move", the codemaker sends a move at the beginning at the game,
+        which is the code that the codebreaker must break.
+    - Codebreaker:
+        "move", the codebreaker sends a guess to the server.
+    - Server:
+        host
+            Informs the codemaker that they shall be the codemaker.
+            Displays the "waiting" message.
+        start
+            Informs the codemaker that they can start making the code.
+        playerAnswer
+            Displays the answer a codemaker has made to the codemaker.
+        display
+            Tells the codemaker to display their own guess.
+
+        player
+            Informs the codebreaker that they shall be codemaker.
+        ready
+            Informs the codebreaker that a host has been found,
+            they are now waiting for the host to develop a code.
+        go
+            Informs the codebreaker that the host has made a code,
+            they can start guessing.
+        false
+            Informs the codebreaker that their guess was false,
+            they should try again.
+        outOfMoves
+            Informs the codebreaker that they are out of moves,
+            they have lost.
+
+        invalid
+            Informs either player their move was invalid.
+        win
+            Informs either player they have won the game.
+        lose
+            Informs either player they have lost the game.
+        disconnected
+            Informs either player that the other has disconnected.
+
+Source code

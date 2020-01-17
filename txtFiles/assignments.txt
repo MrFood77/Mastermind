@@ -28,12 +28,18 @@ Assignment 4:
     4.3:
         - 
 Assignment 5: 
+2.1)
     - Plan of action for JS client side:
     Interactive UI elements:
         - Mouse click in the colour-selector: Update the selector to the specific colour.
         - Mouse click in the game-table: Update the value of that pin.
         - Click on send button: Submit this guess.
-    We use Design Pattern I: Basic constructor, as we only store 1 object in JS,
+
+2.2)
+    We use Design Pattern I: Basic constructor, because the game manager stays constant
+    throughout the entire game, and we don't need different versions
     the other objects are stored as a state in the webpage.
+
+
 Assignment 6:
     - 

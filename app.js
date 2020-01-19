@@ -71,15 +71,20 @@ app.get('/', function(req, res) {
   // res.sendFile("splash.html", {root: "./public"});
   const n = numberOfMoves / numberOfGames;
   const averageMoves = n !== n ?
-    "No games played yet" : n + "guesses on average.";
+    "No games played yet" : n + " guesses on average.";
+  co = JSON.parse(req.cookies);
+  playerGames = co.timesPlayed;
   res.render("splash", {
     currentGames: currentGames,
     totalGames: numberOfGames,
     averageMoves: averageMoves,
+    playerGames: playergames,
   });
 });
 
 app.get('/play', function(req, res) {
+  co = JSON.parse(req.cookies);
+  res.cookie("timesPlayed", co.timesPlayed + 1);
   res.sendFile("game.html", {root: "./public"});
 });
 

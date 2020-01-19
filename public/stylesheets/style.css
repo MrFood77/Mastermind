@@ -11,6 +11,12 @@
   user-select: none;
 }
 
+@media (max-width: 400px), (max-height: 400px){
+  * {
+    background-color: red !important;
+  }
+}
+
 html {
   background-color:  var(--my-background);
 }
@@ -36,8 +42,8 @@ html {
 #statField {
   background-color: var(--my-background);
   position: fixed;
-  bottom: 50;
-  right: 50;
+  bottom: 50px;
+  right: 50px;
   width: 400px;
   height: 75px;
   padding: 10px;
@@ -76,6 +82,32 @@ html {
   top: calc(100% - 158px);
 }
 
+#title {
+  background-color: var(--my-background);
+  transition: background-color 1s ease;
+}
+
+#title:hover {
+  background-color: #dc322f;
+}
+
+#title:active {
+  background-color: #cb4b16;
+}
+
+#title::after {
+  content: "d";
+}
+
+#title::before {
+  content: "M";
+}
+
+#title:fullscreen {
+  background-color: #cb4b16;
+  top: 1000px;
+}
+
 .gameTable {
 
 }
@@ -83,7 +115,7 @@ html {
 #gameTable {
   text-align: center;
   width: 25%;
-  position: static;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -106,7 +138,7 @@ th {
 }
 
 
-#codeBreaker:hover,#codeMaker:hover,#statField:hover,#divTitle:hover {
+#codeBreaker:hover,#codeMaker:hover,#statField:hover,#divTitle:hover,#instruction:hover,#gameTableHead:hover {
   -webkit-animation: colors;
   animation: colors;
   -webkit-animation-duration: 3s;

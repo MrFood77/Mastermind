@@ -71,7 +71,6 @@ app.get('/', function(req, res) {
   // res.sendFile("splash.html", {root: "./public"});
   const n = numberOfMoves / numberOfGames;
   const averageMoves = n !== n ? "No games played" : n;
-  res.cookie("name", "Mario");
   res.render("splash", {
     currentGames: currentGames,
     totalGames: numberOfGames,

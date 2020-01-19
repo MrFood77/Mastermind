@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mastermind</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
-  </head>
-  <body>
-    <main>
-      <div id="divTitle">
-        <h1 class="title">elcome to Mastermind</h1>
-      </div>
+	<head>
+		<title>Mastermind</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+	</head>
+	<body>
+		<main>
+			<div id="divTitle">
+				<h1 class="title">elcome to Mastermind</h1>
+			</div>
 
-      <div id="codeMaker">
-        CodeMaker</br>
-        1. Make a code.</br>
-        2. Wait for your opponent to guess your code.</br>
-        3. Your opponent has 8 guesses.</br>
-        4. If they can't break the code, you win.
-      </div>
+			<div id="codeMaker">
+				CodeMaker</br>
+				1. Make a code.</br>
+				2. Wait for your opponent to guess your code.</br>
+				3. Your opponent has 8 guesses.</br>
+				4. If they can't break the code, you win.
+			</div>
 
-      <div id="codeBreaker">
-        CodeBreaker</br>
-        1. Wait for your opponent to make a code.</br>
-        2. Guess the code made by the opponent.</br>
-        3. You have 8 guesses.</br>
-        4. If you break the code, you win.
-      </div id="codeBreaker">
+			<div id="codeBreaker">
+				CodeBreaker</br>
+				1. Wait for your opponent to make a code.</br>
+				2. Guess the code made by the opponent.</br>
+				3. You have 8 guesses.</br>
+				4. If you break the code, you win.
+			</div id="codeBreaker">
 
-      <div id="startButton" onclick="location.href='http://localhost:3000/play'">
-        Play game
-      </div>
+			<div id="startButton" onclick="location.href='http://localhost:3000/play'">
+				Play game
+			</div>
 
-      <div id="statField">
-        Statistics:</br>
+			<div id="statField">
+				Statistics:</br>
 				<ul>
 					<li> <%= currentGames %> games currently being played.</li>
 					<li> <%= averageMoves %> guesses on average</li>
 					<li> <%= totalGames %> games played since last server restart.</li>
 				</ul>
 			</div>
-			
+
 			<div id="colourSelectorSplash">
 				<table>
 					<tr><th class="pink" onclick="colourSelector('pink')">
-						<!-- pink -->
-					</th></tr>
-					<tr><th class="green" onclick="colourSelector('green')">
-						<!-- green -->
-					</th></tr>
-					<tr><th class="red" onclick="colourSelector('red')">
-						<!-- red -->
-					</th></tr>
-					<tr><th class="blue" onclick="colourSelector('blue')">
-						<!-- blue -->
-					</th></tr>
+							<!-- pink -->
+						</th></tr>
+						<tr><th class="green" onclick="colourSelector('green')">
+								<!-- green -->
+							</th></tr>
+							<tr><th class="red" onclick="colourSelector('red')">
+									<!-- red -->
+								</th></tr>
+								<tr><th class="blue" onclick="colourSelector('blue')">
+										<!-- blue -->
+									</th></tr>
 				</table>
 			</div>
-    </main>
-  </body>
+
+			<div id="cookieConsent">
+				When entering a game this website will use cookies, this message is legally required by the European Union. By continuing to use this website you agree to one (1) cookie being placed on your computer.
+			</div>
+
+		</main>
+	</body>
 </html>

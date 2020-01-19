@@ -45,7 +45,17 @@ html {
   bottom: 50px;
   right: 50px;
   width: 400px;
-  height: 75px;
+  height: 100px;
+  padding: 10px;
+}
+
+#cookieConsent {
+  background-color: var(--my-background);
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  width: 400px;
+  height: 100px;
   padding: 10px;
 }
 

@@ -72,19 +72,21 @@ app.get('/', function(req, res) {
   const n = numberOfMoves / numberOfGames;
   const averageMoves = n !== n ?
     "No games played yet" : n + " guesses on average.";
-  co = JSON.parse(req.cookies);
-  playerGames = co.timesPlayed;
+  co = req.cookies;
+  timesPlayed = co.timesPlayed == undefined ? 0 : parseInt(co.timesPlayed);
+  playerGames = timesPlayed;
   res.render("splash", {
     currentGames: currentGames,
     totalGames: numberOfGames,
     averageMoves: averageMoves,
-    playerGames: playergames,
+    playerGames: playerGames,
   });
 });
 
 app.get('/play', function(req, res) {
-  co = JSON.parse(req.cookies);
-  res.cookie("timesPlayed", co.timesPlayed + 1);
+  co = req.cookies;
+  timesPlayed = co.timesPlayed == undefined ? 0 : parseInt(co.timesPlayed);
+  res.cookie("timesPlayed", timesPlayed + 1);
   res.sendFile("game.html", {root: "./public"});
 });
 

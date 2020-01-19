@@ -23,6 +23,7 @@ const express = require("express");
 const http = require("http");
 const websocket = require("ws");
 const ejs = require("ejs");
+const cookieParser = require("cookie-parser");
 
 // If no port is provided, use port 3000.
 let port = 3000;
@@ -34,6 +35,7 @@ const app = express();
 app.set('views', __dirname + '/public');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(cookieParser());
 
 let numberOfMoves = 0;
 let numberOfGames = 0;
@@ -69,6 +71,7 @@ app.get('/', function(req, res) {
   // res.sendFile("splash.html", {root: "./public"});
   const n = numberOfMoves / numberOfGames;
   const averageMoves = n !== n ? "No games played" : n;
+  res.cookie("name", "Mario");
   res.render("splash", {
     currentGames: currentGames,
     totalGames: numberOfGames,

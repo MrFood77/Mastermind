@@ -70,7 +70,8 @@ function amountCorrect(a, b) {
 app.get('/', function(req, res) {
   // res.sendFile("splash.html", {root: "./public"});
   const n = numberOfMoves / numberOfGames;
-  const averageMoves = n !== n ? "No games played" : n;
+  const averageMoves = n !== n ?
+    "No games played yet" : n + "guesses on average.";
   res.render("splash", {
     currentGames: currentGames,
     totalGames: numberOfGames,

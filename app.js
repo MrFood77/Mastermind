@@ -57,10 +57,11 @@ function amountCorrect(a, b) {
     for (j = 0; j < 4; j++) {
       if (moves[i] == answer[j]) {
         corPlace++;
+        break;
       }
     }
   }
-  return corTotal + " " + (corPlace / 2);
+  return corTotal + " " + corPlace;
 }
 
 // app.get('/greetme', function(req, res) {

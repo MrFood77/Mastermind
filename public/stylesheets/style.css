@@ -92,6 +92,14 @@ html {
   top: calc(100% - 158px);
 }
 
+#fullscreen {
+  height: 100%;
+  width: 100%;
+  padding: 1px;
+  margin: 0px;
+
+}
+
 #title {
   background-color: var(--my-background);
   transition: background-color 1s ease;
@@ -115,7 +123,6 @@ html {
 
 #title:fullscreen {
   background-color: #cb4b16;
-  top: 1000px;
 }
 
 .gameTable {

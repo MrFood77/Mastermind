@@ -55,7 +55,7 @@ socket.onmessage = function(event) {
     case "lose":
       document.getElementById("instruction").innerHTML =
         "Sadly, you have lost.";
-      addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
+      // addPermaRow4(moves[1], moves[2], moves[3], moves[4]);
       break;
     case "playerAnswer":
       // What do to when the player sends an answer to the host?

@@ -1,9 +1,9 @@
 ~~Statistics in splash.html
-HTML of game screen
-CSS of game screen
+~~HTML of game screen
+~~CSS of game screen
 ~~Max moves
 Using objects and design pattern in js1.js
     - Add changes in design pattern to assignments.txt
-Finish all the text assignments.
+~~Finish all the text assignments.
 Turn assignments into PDF and hand them in.
 Check all assignments.

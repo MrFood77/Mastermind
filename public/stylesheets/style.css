@@ -125,10 +125,6 @@ html {
   background-color: #cb4b16;
 }
 
-.gameTable {
-
-}
-
 #gameTable {
   text-align: center;
   width: 25%;
@@ -149,11 +145,6 @@ th {
   border-collapse: collapse;
   column-span: all;
 }
-
-#instructionField {
-
-}
-
 
 #codeBreaker:hover,#codeMaker:hover,#statField:hover,#divTitle:hover,#instruction:hover,#gameTableHead:hover {
   -webkit-animation: colors;

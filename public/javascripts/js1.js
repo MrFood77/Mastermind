@@ -7,10 +7,16 @@ function Moves() {
   this.previous = [];
 
   // checks if the move has already been done
-  this.notDone = function() {
-    console.log("To be implemented");
+  this.check = function(move) {
+    return this.previous.includes(move);
+  };
+
+  this.add = function(move) {
+    this.previous.push(move);
   };
 }
+
+previousMovesDoneObject = new Moves();
 
 // Server stuff
 socket.onmessage = function(event) {
@@ -179,10 +185,18 @@ function addTempRow(a, b, c, d) {
     const third = document.getElementById("third").className.slice(4);
     const fourth = document.getElementById("fourth").className.slice(4);
 
+    const move = first + " " + second + " " + third + " " + fourth;
+    console.log(window.previousMovesDoneObject);
+    const done = window.previousMovesDoneObject.check(move);
+    if (done) {
+      alert("Move has already been done");
+      return;
+    }
+
+    window.previousMovesDoneObject.add(move);
     removeRow();
     // vaddPermaRow4(first, second, third, fourth);
 
-    const move = first + " " + second + " " + third + " " + fourth;
     console.log("The move made was " + move);
 
     socket.send(move);

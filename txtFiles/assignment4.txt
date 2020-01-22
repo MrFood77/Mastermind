@@ -137,3 +137,6 @@ See ./wireframe/gameScreen.png
 
 5.3)
 Needs to be posted.
+
+6)
+See gameScreen.html and splash_raw.html.

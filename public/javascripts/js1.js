@@ -175,6 +175,7 @@ function addTempRow(a, b, c, d) {
   $("#gameTable").append(newRow);
 
   $(".row").click( function() {
+    document.getElementById("dingaudio").play();
     rowClicked(this.id);
   });
 
